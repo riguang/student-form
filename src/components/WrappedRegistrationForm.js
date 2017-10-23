@@ -1,8 +1,10 @@
 import React from 'react';
-import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
+import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, 
+  AutoComplete, Upload} from 'antd';
 const FormItem = Form.Item;
 const Option = Select.Option;
 const AutoCompleteOption = AutoComplete.Option;
+const { TextArea } = Input;
 
 const grades = [{
   value: '15级',
@@ -113,6 +115,9 @@ class RegistrationForm extends React.Component {
     const value = e.target.value;
     this.setState({ confirmDirty: this.state.confirmDirty || !!value });
   }
+  onChekChange = (checkedValues)=>{
+    console.log('在校担任 = ', checkedValues);
+  }
   checkPassword = (rule, value, callback) => {
     const form = this.props.form;
     if (value && value !== form.getFieldValue('password')) {
@@ -138,7 +143,13 @@ class RegistrationForm extends React.Component {
     }
     this.setState({ autoCompleteResult });
   }
-
+  normFile = (e) => {
+    console.log('Upload event:', e);
+    if (Array.isArray(e)) {
+      return e;
+    }
+    return e && e.fileList;
+  }
   render() {
     const { getFieldDecorator } = this.props.form;
     const { autoCompleteResult } = this.state;
@@ -269,7 +280,74 @@ class RegistrationForm extends React.Component {
           <Input />
         )}
         </FormItem>
+        <FormItem
+        {...formItemLayout}
+        label="在校担任"
+        >
+        {getFieldDecorator('position', {
+          rules: [{ type: 'array', required: false}],
+        })(
+        <Checkbox.Group onChange={this.onChekChange}>
+        <Row>
+          <Col span={8}><Checkbox value="班级干部">班级干部</Checkbox></Col>
+          <Col span={8}><Checkbox value="分院干部">分院干部</Checkbox></Col>
+          <Col span={8}><Checkbox value="校级干部">校级干部</Checkbox></Col>
+        </Row>
+        </Checkbox.Group>
+        )}
+        </FormItem>
+        <FormItem
+        {...formItemLayout}
+        label="籍贯"
+        >
+        {getFieldDecorator('NativePlace', {
+          rules: [{ required: true, message: '请输入你的籍贯', whitespace: true }],
+        })(
+          <Input />
+        )}
+        </FormItem>
 
+        <FormItem
+          {...formItemLayout}
+          label="本人照片"
+        >
+          <div className="dropbox">
+            {getFieldDecorator('myPhoto', {
+              valuePropName: 'fileList',
+              getValueFromEvent: this.normFile,
+            })(
+              <Upload.Dragger name="files" action="http://localhost/uploadfile.aspx"
+              headers={{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'}}
+              name="Files"
+              >
+                <p className="ant-upload-drag-icon" style={{marginTop:10}}>
+                  <Icon type="user" />
+                </p>
+                <p className="ant-upload-text">上传照片</p>
+              </Upload.Dragger>
+            )}
+          </div>
+        </FormItem>
+        <FormItem
+        {...formItemLayout}
+        label="资助与奖励"
+        >
+        {getFieldDecorator('Grants', {
+          rules: [{ required: false}],
+        })(
+          <TextArea rows={4} />
+        )}
+        </FormItem>
+        <FormItem
+        {...formItemLayout}
+        label="获奖情况"
+        >
+        {getFieldDecorator('awards', {
+          rules: [{ required: false}],
+        })(
+          <TextArea rows={4} />
+        )}
+        </FormItem>
         <FormItem {...tailFormItemLayout}>
           <Button type="primary" htmlType="submit">提交</Button>
         </FormItem>

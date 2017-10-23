@@ -1,0 +1,1 @@
+exports.config = 'mssql://bds256641600:riguang960526@bds256641600.my3w.com/bds256641600_db';
