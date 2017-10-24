@@ -150,6 +150,11 @@ class RegistrationForm extends React.Component {
     }
     return e && e.fileList;
   }
+  photoChange = (e)=>{
+    if(e.file.status==="done"){
+      e.file.name=e.file.response.data.pictureUrl.split('/')[5];
+    }
+  }
   render() {
     const { getFieldDecorator } = this.props.form;
     const { autoCompleteResult } = this.state;
@@ -315,10 +320,10 @@ class RegistrationForm extends React.Component {
             {getFieldDecorator('myPhoto', {
               valuePropName: 'fileList',
               getValueFromEvent: this.normFile,
+              rules: [{ required: this.normFile, message: '请上传你的照片' }],
             })(
-              <Upload.Dragger name="files" action="http://localhost/uploadfile.aspx"
-              headers={{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'}}
-              name="Files"
+              <Upload.Dragger name="files" action="/api/upload"
+              onChange={this.photoChange}
               >
                 <p className="ant-upload-drag-icon" style={{marginTop:10}}>
                   <Icon type="user" />
