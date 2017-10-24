@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, 
   AutoComplete, Upload} from 'antd';
 const FormItem = Form.Item;
@@ -108,6 +109,8 @@ class RegistrationForm extends React.Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
+        axios.post('/api/formsubmit',values).
+        then((res)=>console.log(res));
       }
     });
   }
@@ -196,7 +199,6 @@ class RegistrationForm extends React.Component {
 
     return (
       <Form onSubmit={this.handleSubmit}>
-        
         <FormItem
           {...formItemLayout}
           label={(
