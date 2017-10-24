@@ -4,7 +4,7 @@
 /node_modules
 /server/assests
 /server/node_modules
-
+/server/dbconfig.js
 # testing
 /coverage
 
