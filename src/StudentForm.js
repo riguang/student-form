@@ -1,10 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, 
-  AutoComplete, Upload} from 'antd';
+import { Form, Input, Tooltip, Icon, Cascader, Row, Col, Checkbox, Button, Upload} from 'antd';
 const FormItem = Form.Item;
-const Option = Select.Option;
-const AutoCompleteOption = AutoComplete.Option;
 const { TextArea } = Input;
 
 const grades = [{
@@ -98,7 +95,7 @@ const gongyus = [{
 },{
   value:"慈溪校区",
   label:"慈溪校区"
-}]
+}];
 class RegistrationForm extends React.Component {
   state = {
     confirmDirty: false,
@@ -109,8 +106,7 @@ class RegistrationForm extends React.Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
-        axios.post('/api/formsubmit',values).
-        then((res)=>console.log(res));
+        axios.post('/api/formsubmit',values).then((res)=>console.log(res));
       }
     });
   }
@@ -160,7 +156,6 @@ class RegistrationForm extends React.Component {
   }
   render() {
     const { getFieldDecorator } = this.props.form;
-    const { autoCompleteResult } = this.state;
 
     const formItemLayout = {
       labelCol: {
@@ -184,18 +179,6 @@ class RegistrationForm extends React.Component {
         },
       },
     };
-    const prefixSelector = getFieldDecorator('prefix', {
-      initialValue: '86',
-    })(
-      <Select style={{ width: 60 }}>
-        <Option value="86">+86</Option>
-        <Option value="87">+87</Option>
-      </Select>
-    );
-
-    const websiteOptions = autoCompleteResult.map(website => (
-      <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
-    ));
 
     return (
       <Form onSubmit={this.handleSubmit}>
@@ -363,5 +346,5 @@ class RegistrationForm extends React.Component {
   }
 }
 
-const WrappedRegistrationForm = Form.create()(RegistrationForm);
-export default WrappedRegistrationForm;
+const StudentForm = Form.create()(RegistrationForm);
+export default StudentForm;

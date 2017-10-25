@@ -1,6 +1,7 @@
 {
   "name": "antdtest",
   "proxy": "http://localhost:3300",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
