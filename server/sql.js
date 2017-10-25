@@ -68,7 +68,7 @@ sql.initConfig=function(user,password,server,database){
  */
 sql.execute=function(procedure,params,func){
     try {
-        var connection = new mssql.connect(config, function (error) {
+        var connection = new mssql.ConnectionPool(config, function (error) {
             if(error)
                 func(error);
             else {
@@ -114,7 +114,7 @@ sql.execute=function(procedure,params,func){
  */
 sql.queryWithParams=function(sqltext,params,func){
     try {
-        var connection = new mssql.connect(config, function (err) {
+        var connection = new mssql.ConnectionPool(config, function (err) {
             if(err)
                 func(err);
             else {
@@ -161,7 +161,7 @@ sql.query=function(sqltext,func){
 sql.bulkInsert=function(table,func){
     try{
         if(table){
-            var connection=new mssql.connect(config,function(err){
+            var connection=new mssql.ConnectionPool(config,function(err){
                 if(err) func(err)
                 else{
                     var request=new mssql.Request(connection);
@@ -200,7 +200,7 @@ sql.queryViaStreamWithParams=function(sqltext,params,func){
     try{
         config.stream=true;
 
-        mssql.connect(config,function(err){
+        mssql.ConnectionPool(config,function(err){
             if(err)
                 func.error(err);
             else{
