@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "antd": "^2.13.3",
+    "antd": "^2.13.7",
     "axios": "^0.17.0",
     "koa": "^2.3.0",
     "koa-body": "^2.5.0",

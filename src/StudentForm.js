@@ -184,14 +184,7 @@ class RegistrationForm extends React.Component {
       <Form onSubmit={this.handleSubmit}>
         <FormItem
           {...formItemLayout}
-          label={(
-            <span>
-              姓名&nbsp;
-              <Tooltip title="请输入真实姓名">
-                <Icon type="question-circle-o" />
-              </Tooltip>
-            </span>
-          )}
+          label="姓名"
           hasFeedback
         >
           {getFieldDecorator('youname', {
