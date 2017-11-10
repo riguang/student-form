@@ -141,9 +141,9 @@ ansi-styles@^3.0.0, ansi-styles@^3.1.0:
   dependencies:
     color-convert "^1.9.0"
 
-antd@^2.13.3:
-  version "2.13.3"
-  resolved "http://registry.npm.taobao.org/antd/download/antd-2.13.3.tgz#e54897e471d64d59c01fea6ea41b3ae0eab0984d"
+antd@^2.13.7:
+  version "2.13.9"
+  resolved "https://registry.yarnpkg.com/antd/-/antd-2.13.9.tgz#f8bcd17f0ecf9c5ef659bb6bc0124b450e6de080"
   dependencies:
     array-tree-filter "~1.0.0"
     babel-runtime "6.x"
@@ -155,7 +155,7 @@ antd@^2.13.3:
     moment "^2.18.1"
     omit.js "^1.0.0"
     prop-types "^15.5.7"
-    rc-animate "^2.3.6"
+    rc-animate "^2.4.1"
     rc-calendar "~9.0.0"
     rc-cascader "~0.11.3"
     rc-checkbox "~2.0.3"
@@ -182,8 +182,8 @@ antd@^2.13.3:
     rc-tree-select "~1.10.2"
     rc-upload "~2.4.0"
     rc-util "^4.0.4"
-    react-lazy-load "^3.0.10"
-    react-slick "~0.15.0"
+    react-lazy-load "^3.0.12"
+    react-slick "~0.15.4"
     shallowequal "^1.0.1"
     warning "~3.0.0"
 
@@ -5915,7 +5915,7 @@ rc-align@2.x:
     prop-types "^15.5.8"
     rc-util "4.x"
 
-rc-animate@2.x, rc-animate@^2.0.2, rc-animate@^2.3.0, rc-animate@^2.3.6:
+rc-animate@2.x, rc-animate@^2.0.2, rc-animate@^2.3.0, rc-animate@^2.4.1:
   version "2.4.1"
   resolved "http://registry.npm.taobao.org/rc-animate/download/rc-animate-2.4.1.tgz#df3e0f56fe106afe4bf52ff408ced241c5178919"
   dependencies:
@@ -6326,9 +6326,9 @@ react-error-overlay@^2.0.2:
     settle-promise "1.0.0"
     source-map "0.5.6"
 
-react-lazy-load@^3.0.10:
+react-lazy-load@^3.0.12:
   version "3.0.12"
-  resolved "http://registry.npm.taobao.org/react-lazy-load/download/react-lazy-load-3.0.12.tgz#2b841dfc3227e8119d033189d2c960ce384d0cb9"
+  resolved "https://registry.yarnpkg.com/react-lazy-load/-/react-lazy-load-3.0.12.tgz#2b841dfc3227e8119d033189d2c960ce384d0cb9"
   dependencies:
     eventlistener "0.0.1"
     lodash.debounce "^4.0.0"
@@ -6384,9 +6384,9 @@ react-scripts@1.0.14:
   optionalDependencies:
     fsevents "1.1.2"
 
-react-slick@~0.15.0:
+react-slick@~0.15.4:
   version "0.15.4"
-  resolved "http://registry.npm.taobao.org/react-slick/download/react-slick-0.15.4.tgz#6709c87b06e7640feeacc06711be42cc2066aabe"
+  resolved "https://registry.yarnpkg.com/react-slick/-/react-slick-0.15.4.tgz#6709c87b06e7640feeacc06711be42cc2066aabe"
   dependencies:
     can-use-dom "^0.1.0"
     classnames "^2.2.5"
