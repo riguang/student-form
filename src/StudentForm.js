@@ -180,13 +180,13 @@ class RegistrationForm extends React.Component {
 
         return ( <
             div > < h2 style = {
-                { align: "center", margin: "20px auto" } } > 浙江工商职业技术学院学生信息登记系统 < /h2> <
+                { align: "center", margin: "20px auto" }
+            } > 浙江工商职业技术学院学生信息登记系统 < /h2> <
             Form onSubmit = { this.handleSubmit } >
             <
             FormItem {...formItemLayout }
             label = "姓名"
-            hasFeedback >
-            {
+            hasFeedback > {
                 getFieldDecorator('youname', {
                     rules: [{ required: true, message: '请输入你的姓名', whitespace: true }],
                 })( <
@@ -195,8 +195,7 @@ class RegistrationForm extends React.Component {
             } <
             /FormItem> <
             FormItem {...formItemLayout }
-            label = "年级" >
-            {
+            label = "年级" > {
                 getFieldDecorator('grade', {
                     rules: [{ type: 'array', required: true, message: '请选择年级' }],
                 })( <
@@ -206,8 +205,7 @@ class RegistrationForm extends React.Component {
             } <
             /FormItem> <
             FormItem {...formItemLayout }
-            label = "班级" >
-            {
+            label = "班级" > {
                 getFieldDecorator('class', {
                     rules: [{ required: true, message: '请输入你的班级', whitespace: true }],
                 })( <
@@ -216,8 +214,7 @@ class RegistrationForm extends React.Component {
             } <
             /FormItem> <
             FormItem {...formItemLayout }
-            label = "学号" >
-            {
+            label = "学号" > {
                 getFieldDecorator('studentId', {
                     rules: [{ required: true, message: '请输入你的学号', whitespace: true }],
                 })( <
@@ -226,8 +223,7 @@ class RegistrationForm extends React.Component {
             } <
             /FormItem> <
             FormItem {...formItemLayout }
-            label = "学院" >
-            {
+            label = "学院" > {
                 getFieldDecorator('college', {
                     rules: [{ type: 'array', required: true, message: '请选择学院' }],
                 })( <
@@ -237,8 +233,7 @@ class RegistrationForm extends React.Component {
             } <
             /FormItem> <
             FormItem {...formItemLayout }
-            label = "专业" >
-            {
+            label = "专业" > {
                 getFieldDecorator('majors', {
                     rules: [{ required: true, message: '请输入你的专业', whitespace: true }],
                 })( <
@@ -247,8 +242,7 @@ class RegistrationForm extends React.Component {
             } <
             /FormItem> <
             FormItem {...formItemLayout }
-            label = "公寓楼" >
-            {
+            label = "公寓楼" > {
                 getFieldDecorator('gongyu', {
                     rules: [{ type: 'array', required: true, message: '请选择公寓楼' }],
                 })( <
@@ -258,8 +252,7 @@ class RegistrationForm extends React.Component {
             } <
             /FormItem> <
             FormItem {...formItemLayout }
-            label = "寝室号" >
-            {
+            label = "寝室号" > {
                 getFieldDecorator('DormitoryId', {
                     rules: [{ required: true, message: '请输入你的寝室号', whitespace: true }],
                 })( <
@@ -268,8 +261,7 @@ class RegistrationForm extends React.Component {
             } <
             /FormItem> <
             FormItem {...formItemLayout }
-            label = "在校担任" >
-            {
+            label = "在校担任" > {
                 getFieldDecorator('position', {
                     rules: [{ type: 'array', required: false }],
                 })( <
@@ -283,14 +275,13 @@ class RegistrationForm extends React.Component {
                     <
                     Col span = { 8 } > < Checkbox value = "校级干部" > 校级干部 < /Checkbox></Col >
                     <
-                    /Row> <
-                    /Checkbox.Group>
+                    /Row> < /
+                    Checkbox.Group >
                 )
             } <
             /FormItem> <
             FormItem {...formItemLayout }
-            label = "籍贯" >
-            {
+            label = "籍贯" > {
                 getFieldDecorator('NativePlace', {
                     rules: [{ required: true, message: '请输入你的籍贯', whitespace: true }],
                 })( <
@@ -299,36 +290,38 @@ class RegistrationForm extends React.Component {
             } <
             /FormItem>
 
-            <
-            FormItem {...formItemLayout }
-            label = "本人照片" >
-            <
-            div className = "dropbox" > {
-                getFieldDecorator('myPhoto', {
-                    valuePropName: 'fileList',
-                    getValueFromEvent: this.normFile,
-                    rules: [{ required: this.normFile, message: '请上传你的照片' }],
-                })( <
-                    Upload.Dragger name = "files"
-                    action = "/api/upload"
-                    onChange = { this.photoChange } >
-                    <
-                    p className = "ant-upload-drag-icon"
-                    style = {
-                        { marginTop: 10 } } >
-                    <
-                    Icon type = "user" / >
-                    <
-                    /p> <
-                    p className = "ant-upload-text" > 上传照片 < /p> <
-                    /Upload.Dragger>
-                )
-            } <
-            /div> <
-            /FormItem> <
-            FormItem {...formItemLayout }
-            label = "资助与奖励" >
             {
+                /* <
+                            FormItem {...formItemLayout }
+                            label = "本人照片" >
+                            <
+                            div className = "dropbox" > {
+                                getFieldDecorator('myPhoto', {
+                                    valuePropName: 'fileList',
+                                    getValueFromEvent: this.normFile,
+                                    rules: [{ required: this.normFile, message: '请上传你的照片' }],
+                                })( <
+                                    Upload.Dragger name = "files"
+                                    action = "/api/upload"
+                                    onChange = { this.photoChange } >
+                                    <
+                                    p className = "ant-upload-drag-icon"
+                                    style = {
+                                        { marginTop: 10 }
+                                    } >
+                                    <
+                                    Icon type = "user" / >
+                                    <
+                                    /p> <
+                                    p className = "ant-upload-text" > 上传照片 < /p> < /
+                                    Upload.Dragger >
+                                )
+                            } <
+                            /div> < /
+                            FormItem >  */
+            } <
+            FormItem {...formItemLayout }
+            label = "资助与奖励" > {
                 getFieldDecorator('Grants', {
                     rules: [{ required: false }],
                 })( <
@@ -338,8 +331,7 @@ class RegistrationForm extends React.Component {
             } <
             /FormItem> <
             FormItem {...formItemLayout }
-            label = "获奖情况" >
-            {
+            label = "获奖情况" > {
                 getFieldDecorator('awards', {
                     rules: [{ required: false }],
                 })( <
@@ -351,10 +343,10 @@ class RegistrationForm extends React.Component {
             FormItem {...tailFormItemLayout } >
             <
             Button type = "primary"
-            htmlType = "submit" > 提交 < /Button> <
-            /FormItem> <
-            /Form> <
-            /div>
+            htmlType = "submit" > 提交 < /Button> < /
+            FormItem > <
+            /Form> < /
+            div >
         );
     }
 }
