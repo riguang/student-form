@@ -291,7 +291,7 @@ class RegistrationForm extends React.Component {
             /FormItem>
 
             {
-                /* <
+                <
                             FormItem {...formItemLayout }
                             label = "本人照片" >
                             <
@@ -318,7 +318,7 @@ class RegistrationForm extends React.Component {
                                 )
                             } <
                             /div> < /
-                            FormItem >  */
+                            FormItem >
             } <
             FormItem {...formItemLayout }
             label = "资助与奖励" > {
